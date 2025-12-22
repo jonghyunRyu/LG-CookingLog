@@ -22,7 +22,7 @@ export default function UserManagement() {
 
   const API_URL = 'https://after-ungratifying-lilyanna.ngrok-free.dev/api/admin/users';
 
-  /** 사용자 목록 조회 (전체 혹은 초기 데이터) */
+  /* 사용자 목록 조회 (전체 혹은 초기 데이터) */
   const fetchUsers = async () => {
     setLoading(true);
     try {
@@ -59,7 +59,7 @@ export default function UserManagement() {
     fetchUsers();
   }, []);
 
-  /** 사용자 삭제 */
+  // 사용자 삭제
   const handleDelete = async (id: number) => {
     if (!confirm('정말 삭제하시겠습니까?')) return;
     try {
@@ -73,7 +73,7 @@ export default function UserManagement() {
     }
   };
 
-  // [핵심] PostManagement 스타일의 클라이언트 필터링
+  // PostManagement 스타일의 클라이언트 필터링
   const filteredUsers = useMemo(() => {
     return users.filter((user) =>
       user.userId.toLowerCase().includes(search.toLowerCase()) ||
